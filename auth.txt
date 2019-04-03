@@ -1,0 +1,2 @@
+curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
+    https://api.github.com/user
