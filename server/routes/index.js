@@ -4,6 +4,7 @@ const ControllerUser = require('../controllers/user')
 route.get('/', (req, res) => {
   res.status(200).json({message: `Home~`})
 })
+route.get('/user', ControllerUser.profile)
 route.get('/user/repos', ControllerUser.getRepos)
 route.post('/user', ControllerUser.createRepo)
 route.delete('/user/:owner/:repoName', ControllerUser.deleteRepo)
