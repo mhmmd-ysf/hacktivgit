@@ -72,6 +72,26 @@ class ControllerUser {
       res.status(500).json(err)
     })
   }
+  static getStarredOneSearch(req, res) {
+    let input = req.params
+    let regex = new RegExp(`${req.query.q}`, 'ig')
+    // console.log(req.query)
+    // console.log(regex)
+    ax.get(`/users/${input.username}/starred`)
+    .then(({data}) => { 
+      // console.log(data)
+      // console.log('=========================')
+      data = data.filter(item => {
+        let cek = item.name.match(regex)
+        return (cek) ? true : false
+      })
+      console.log(data)
+      res.status(200).json(data)
+    })
+    .catch(err => {
+      res.status(500).json(err)
+    })
+  }
 }
 
 module.exports = ControllerUser
